@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load i18n %}
+    {% get_current_language as CURRENT_LANGUAGE %}
+    <title>{% block title %}
+        {% trans "Платформа Распознавания Объектов" %}
+    {% endblock %}</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 3px 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .active {
+            background-color: blue;
+            color: white;
+        }
+
+        .active2 {
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">{% trans "Платформа Распознавания Объектов" %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item {% if clicked == 'home' %}active2{% endif %}">
+                    <a class="nav-link" href="/">{% trans "Главная страница" %}</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item {% if clicked == 'dashboard' %}active2{% endif %}">
+                    <a class="nav-link" href="/dashboard">{% trans "Профиль:" %} {{ user.username }}</a>
+                </li>
+                <li class="nav-item {% if clicked == 'logout' %}active2{% endif %}">
+                    <a class="nav-link" href="/logout">{% trans "Выход" %}</a>
+                </li>
+                {% else %}
+                <li class="nav-item {% if clicked == 'login' %}active2{% endif %}">
+                    <a class="nav-link" href="/login">{% trans "Авторизация" %}</a>
+                </li>
+                <li class="nav-item {% if clicked == 'register' %}active2{% endif %}">
+                    <a class="nav-link" href="/register">{% trans "Регистрация" %}</a>
+                </li>
+                {% endif %}
+            </ul>
+            <form action="{% url 'set_language' %}" method="post" style="margin-left: auto;">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+
+                <button type="submit" name="language" value="en"
+                        class="button {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}">
+                    EN
+                </button>
+
+                <button type="submit" name="language" value="ru"
+                        class="button {% if CURRENT_LANGUAGE == 'ru' %}active{% endif %}">
+                    РУС
+                </button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main class="container mt-4">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- Подключение Bootstrap и других зависимостей перед закрывающим тегом body -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    let lastActiveButton = null;
+
+    /**
+     * Изменяет цвет кнопки при нажатии.
+     *
+     * @param {HTMLElement} button - Кнопка, на которую нажали.
+     */
+    function changeColor(button) {
+        // Сбрасываем цвет предыдущей активной кнопки
+        if (lastActiveButton && lastActiveButton !== button) {
+            lastActiveButton.classList.remove('active2');
+        }
+
+        // Устанавливаем текущую кнопку как активную
+        button.classList.toggle('active2');
+
+        // Запоминаем последнюю активную кнопку
+        lastActiveButton = button.classList.contains('active2') ? button : null;
+    }
+</script>
+
+</body>
+</html>

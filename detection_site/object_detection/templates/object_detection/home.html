@@ -1,0 +1,9 @@
+{% extends "object_detection/base.html" %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+
+{% block content %}
+<h2>{% trans "Добро пожаловать на Платформу Распознавания Объектов!" %}</h2>
+<p>{% trans "Сейчас вы находитесь на главной странице." %}</p>
+<a href="/dashboard">{% trans "Перейти в профиль." %}</a>
+{% endblock %}

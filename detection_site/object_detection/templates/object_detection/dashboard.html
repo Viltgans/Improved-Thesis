@@ -1,0 +1,44 @@
+{% extends "object_detection/base.html" %}
+{% load i18n %}
+{% block content %}
+
+<h2>{% trans "Панель управления профиля" %} {{ user.username }}</h2>
+<a href="/add-image-feed" class="btn btn-primary mb-3">{% trans "Добавить изображение" %}</a>
+
+{% for feed in image_feeds %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <a href="/process/{{ feed.id }}" class="btn btn-secondary">{% trans "Обработка изображения" %}</a>
+        </div>
+        <div class="card-body">
+            <a href="{{ feed.image.url }}" target="_blank">
+                <img src="{{ feed.image.url }}" alt='{% trans "Исходное изображение" %}' style="width: 50px; height: 50px;">
+            </a>
+            {% if CURRENT_LANGUAGE == 'ru' and feed.ru_processed_image %}
+                <a href="{{ feed.ru_processed_image.url }}" target="_blank">
+                    <img src="{{ feed.ru_processed_image.url }}" alt='{% trans "Обработанное изображение" %}' style="width: 50px; height: 50px;">
+                </a>
+                <ul>
+                    {% for obj in feed.detected_objects.all %}
+                        <li>{{ obj.ru_object_type }} - {{ obj.confidence|floatformat:2 }}</li>
+                    {% endfor %}
+                </ul>
+            {% elif CURRENT_LANGUAGE == 'en' and feed.en_processed_image %}
+                <a href="{{ feed.en_processed_image.url }}" target="_blank">
+                    <img src="{{ feed.en_processed_image.url }}" alt='{% trans "Обработанное изображение" %}' style="width: 50px; height: 50px;">
+                </a>
+                <ul>
+                    {% for obj in feed.detected_objects.all %}
+                        <li>{{ obj.en_object_type }} - {{ obj.confidence|floatformat:2 }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <form action="/image/delete/{{ feed.id }}/" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">{% trans "Удалить" %}</button>
+        </form>
+    </div>
+{% endfor %}
+
+{% endblock %}

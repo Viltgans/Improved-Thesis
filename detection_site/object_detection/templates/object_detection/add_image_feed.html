@@ -1,0 +1,44 @@
+{% extends "object_detection/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Добавление изображения" %}</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input__wrapper">
+        {{ form.image }}
+        <label for="input__file" class="btn btn-primary">
+            {% trans "Выберите файл изображения" %}
+        </label>
+        <p>
+            <label id="file-status">{% trans "Файл не выбран." %}</label>
+        </p>
+    </div>
+    <button type="submit">{% trans "Загрузить изображение" %}</button>
+    <p>
+        <label style="margin-top: 7px">
+            {% trans "Загрузите файл изображения." %}
+        </label>
+    </p>
+</form>
+
+<script>
+/**
+ * Обновляет текстовое содержимое элемента с идентификатором 'file-status'
+ * в зависимости от выбранного файла.
+ */
+function updateFileName() {
+    const input = document.getElementById('input__file');
+    const fileStatus = document.getElementById('file-status');
+
+    if (input.files.length > 0) {
+        fileStatus.textContent = "{% trans 'Выбран файл: ' %}" + input.files[0].name;
+    } else {
+        fileStatus.textContent = "{% trans 'Файл не выбран.' %}";
+    }
+}
+
+// Добавляем обработчик события для изменения состояния файла
+document.getElementById('input__file').addEventListener('change', updateFileName);
+</script>
+{% endblock %}

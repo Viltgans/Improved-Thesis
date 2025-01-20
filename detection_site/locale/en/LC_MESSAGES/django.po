@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-09 16:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\object_detection\templates\object_detection\add_image_feed.html:5
+msgid "Добавление изображения"
+msgstr "Add Image Feed"
+
+#: .\object_detection\templates\object_detection\add_image_feed.html:11
+msgid "Выберите файл изображения"
+msgstr "Select an image file"
+
+#: .\object_detection\templates\object_detection\add_image_feed.html:14
+#: .\object_detection\templates\object_detection\add_image_feed.html:37
+msgid "Файл не выбран."
+msgstr "File not selected."
+
+#: .\object_detection\templates\object_detection\add_image_feed.html:17
+msgid "Загрузить изображение"
+msgstr "Upload Image"
+
+#: .\object_detection\templates\object_detection\add_image_feed.html:20
+msgid "Загрузите файл изображения."
+msgstr "Upload an image file."
+
+#: .\object_detection\templates\object_detection\add_image_feed.html:35
+msgid "Выбран файл:"
+msgstr "File selected:"
+
+#: .\object_detection\templates\object_detection\base.html:7
+#: .\object_detection\templates\object_detection\base.html:37
+msgid "Платформа Распознавания Объектов"
+msgstr "Object Detection Platform"
+
+#: .\object_detection\templates\object_detection\base.html:45
+msgid "Главная страница"
+msgstr "Home"
+
+#: .\object_detection\templates\object_detection\base.html:49
+msgid "Профиль:"
+msgstr "Dashboard:"
+
+#: .\object_detection\templates\object_detection\base.html:52
+msgid "Выход"
+msgstr "Logout"
+
+#: .\object_detection\templates\object_detection\base.html:56
+#: .\object_detection\templates\object_detection\login.html:6
+#: .\object_detection\templates\object_detection\login.html:24
+#: .\object_detection\templates\object_detection\register.html:44
+msgid "Авторизация"
+msgstr "Login"
+
+#: .\object_detection\templates\object_detection\base.html:59
+#: .\object_detection\templates\object_detection\login.html:28
+#: .\object_detection\templates\object_detection\register.html:6
+#: .\object_detection\templates\object_detection\register.html:40
+msgid "Регистрация"
+msgstr "Register"
+
+#: .\object_detection\templates\object_detection\dashboard.html:5
+msgid "Панель управления профиля"
+msgstr "Dashboard"
+
+#: .\object_detection\templates\object_detection\dashboard.html:7
+msgid "Добавить изображение"
+msgstr "Add Image"
+
+#: .\object_detection\templates\object_detection\dashboard.html:13
+msgid "Обработка изображения"
+msgstr "Process Image"
+
+#: .\object_detection\templates\object_detection\dashboard.html:18
+msgid "Исходное изображение"
+msgstr "Original Image"
+
+#: .\object_detection\templates\object_detection\dashboard.html:23
+msgid "Обработанное изображение"
+msgstr "Processed Image"
+
+#: .\object_detection\templates\object_detection\dashboard.html:38
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\object_detection\templates\object_detection\home.html:6
+msgid "Добро пожаловать на Платформу Распознавания Объектов!"
+msgstr "Welcome to the Object Detection Platform!"
+
+#: .\object_detection\templates\object_detection\home.html:7
+msgid "Сейчас вы находитесь на главной странице."
+msgstr "This is the home page of your application."
+
+#: .\object_detection\templates\object_detection\home.html:8
+msgid "Перейти в профиль."
+msgstr "Go to Dashboard"
+
+#: .\object_detection\templates\object_detection\login.html:10
+#: .\object_detection\templates\object_detection\register.html:8
+msgid "Неправильный логин или пароль. Попробуйте еще раз."
+msgstr "Incorrect login or password. Try again."
+
+#: .\object_detection\templates\object_detection\login.html:12
+msgid "Введите логин и пароль для входа:"
+msgstr "Enter your login and password to log in:"
+
+#: .\object_detection\templates\object_detection\login.html:18
+#: .\object_detection\templates\object_detection\register.html:17
+msgid "Логин:"
+msgstr "Login:"
+
+#: .\object_detection\templates\object_detection\login.html:21
+#: .\object_detection\templates\object_detection\register.html:22
+msgid "Пароль:"
+msgstr "Password:"
+
+#: .\object_detection\templates\object_detection\register.html:10
+msgid "Зарегистрируйтесь, чтобы получить доступ к системе управления объектами."
+msgstr "Register to gain access to the Dashboard."
+
+#: .\object_detection\templates\object_detection\register.html:18
+msgid "Обязательно. Не более 150 символов. Только буквы, цифры и @/./+/-/_."
+msgstr "Required. No more than 150 characters. Only letters, numbers and @/./+/-/_."
+
+#: .\object_detection\templates\object_detection\register.html:27
+msgid "Пароль не должен быть похож на учетную информацию."
+msgstr "The password should not be similar to the account information."
+
+#: .\object_detection\templates\object_detection\register.html:28
+msgid "Пароль должен содержать не менее 8 символов."
+msgstr "The password must be at least 8 characters long."
+
+#: .\object_detection\templates\object_detection\register.html:29
+msgid "Пароль не должен быть слишком простым."
+msgstr "The password should not be too simple."
+
+#: .\object_detection\templates\object_detection\register.html:30
+msgid "Пароль не может состоять только из цифр."
+msgstr "The password cannot consist only of numbers."
+
+#: .\object_detection\templates\object_detection\register.html:35
+msgid "Подтвердите пароль:"
+msgstr "Confirm password:"
+
+#: .\object_detection\templates\object_detection\register.html:36
+msgid "Для подтверждения пароля введите пароль повторно."
+msgstr "To confirm password re-enter password."

@@ -1,0 +1,45 @@
+{% extends "object_detection/base.html" %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+
+{% block content %}
+<h2>{% trans "Регистрация" %}</h2>
+{% if form.errors %}
+    <p>{% trans "Неправильный логин или пароль. Попробуйте еще раз." %}</p>
+{% else %}
+    <p>{% trans "Зарегистрируйтесь, чтобы получить доступ к системе управления объектами." %}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+
+    <p>
+        <label>{% trans "Логин:" %}</label> {{ form.username }}
+        <label>{% trans "Обязательно. Не более 150 символов. Только буквы, цифры и @/./+/-/_." %}</label>
+    </p>
+
+    <p>
+        <label>{% trans "Пароль:" %}</label> {{ form.password1 }}
+    </p>
+
+    <p>
+        <ul>
+            <li>{% trans "Пароль не должен быть похож на учетную информацию." %}</li>
+            <li>{% trans "Пароль должен содержать не менее 8 символов." %}</li>
+            <li>{% trans "Пароль не должен быть слишком простым." %}</li>
+            <li>{% trans "Пароль не может состоять только из цифр." %}</li>
+        </ul>
+    </p>
+
+    <p>
+        <label>{% trans "Подтвердите пароль:" %}</label> {{ form.password2 }}
+        <label>{% trans "Для подтверждения пароля введите пароль повторно." %}</label>
+    </p>
+
+    <p>
+        <button type="submit">{% trans "Регистрация" %}</button>
+    </p>
+</form>
+
+<a href="/login">{% trans "Авторизация" %}</a>
+{% endblock %}
